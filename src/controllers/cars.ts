@@ -23,7 +23,7 @@ export class CarController {
       const cars = await carService.getAllCars();
       res.status(200).json(cars);
     } catch (error) {
-      res.status(500).json({ message: 'Error fetching cars', error });
+      res.status(500).json({ message: 'Car not found ', error });
     }
   };
 
