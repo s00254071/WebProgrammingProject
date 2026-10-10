@@ -1,0 +1,76 @@
+@endpoint = http://localhost:3000/api/v1/cars
+
+###
+# @name postACar
+POST {{endpoint}} HTTP/1.1
+content-type: application/json
+
+{
+  "make": "Hyundai",
+  "model": "i40",
+  "year": 2013,
+  "mileage": 180000
+}
+
+###
+@newCar = {{postACar.response.body._id}}
+
+###
+POST {{endpoint}} HTTP/1.1
+content-type: application/json
+
+{
+  "make": "",
+  "model": "i40",
+  "year": 1940
+}
+
+###
+GET {{endpoint}} HTTP/1.1
+content-type: application/json
+
+###
+GET {{endpoint}}/{{newCar}} HTTP/1.1
+content-type: application/json
+
+###
+GET {{endpoint}}/MehmetaliSeatleon3 HTTP/1.1
+content-type: application/json
+
+###
+PUT {{endpoint}}/{{newCar}} HTTP/1.1
+content-type: application/json
+
+{
+  "make": "Hyundai",
+  "model": "i40",
+  "year": 2013,
+  "mileage": 185000
+}
+
+###
+PUT {{endpoint}}/MehmetaliSeatleon4 HTTP/1.1
+content-type: application/json
+
+{
+  "make": "Hyundai",
+  "model": "i40"
+}
+
+###
+PUT {{endpoint}}/{{newCar}} HTTP/1.1
+content-type: application/json
+
+{
+  "make": "Hyundai",
+  "model": "i40",
+  "mileage": -50
+}
+
+###
+DELETE {{endpoint}}/{{newCar}} HTTP/1.1
+content-type: application/json
+
+###
+DELETE {{endpoint}}/{{newCar}} HTTP/1.1
+content-type: application/json

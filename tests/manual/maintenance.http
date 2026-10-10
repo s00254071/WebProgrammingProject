@@ -1,0 +1,96 @@
+@carEndpoint = http://localhost:3000/api/v1/cars
+@endpoint = http://localhost:3000/api/v1/maintenance
+
+###
+# @name postACar
+POST {{carEndpoint}} HTTP/1.1
+content-type: application/json
+
+{
+  "make": "Ford",
+  "model": "Focus",
+  "year": 2015,
+  "mileage": 120000
+}
+
+###
+@carId = {{postACar.response.body._id}}
+
+###
+# @name postARecord
+POST {{endpoint}} HTTP/1.1
+content-type: application/json
+
+{
+  "carId": "{{carId}}",
+  "type": "oil change",
+  "date": "2026-09-15",
+  "cost": 85
+}
+
+###
+@newRecord = {{postARecord.response.body._id}}
+
+###
+POST {{endpoint}} HTTP/1.1
+content-type: application/json
+
+{
+  "carId": "{{carId}}",
+  "type": "car wash",
+  "date": "not a date",
+  "cost": -10
+}
+
+###
+GET {{endpoint}} HTTP/1.1
+content-type: application/json
+
+###
+GET {{endpoint}}/{{newRecord}} HTTP/1.1
+content-type: application/json
+
+###
+GET {{endpoint}}/MehmetaliSeatleon1 HTTP/1.1
+content-type: application/json
+
+###
+PUT {{endpoint}}/{{newRecord}} HTTP/1.1
+content-type: application/json
+
+{
+  "carId": "{{carId}}",
+  "type": "oil change",
+  "date": "2026-09-15",
+  "cost": 95
+}
+
+###
+PUT {{endpoint}}/MehmetaliSeatleon2 HTTP/1.1
+content-type: application/json
+
+{
+  "carId": "{{carId}}",
+  "type": "oil change",
+  "date": "2026-09-15",
+  "cost": 95
+}
+
+###
+PUT {{endpoint}}/{{newRecord}} HTTP/1.1
+content-type: application/json
+
+{
+  "carId": "{{carId}}",
+  "type": "oil change",
+  "date": "2026-09-15",
+  "cost": "ninety five"
+}
+
+###
+DELETE {{endpoint}}/{{newRecord}} HTTP/1.1
+content-type: application/json
+
+###
+DELETE {{endpoint}}/{{newRecord}} HTTP/1.1
+content-type: application/json
