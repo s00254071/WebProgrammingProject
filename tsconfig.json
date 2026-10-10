@@ -1,47 +1,30 @@
 {
-    "compilerOptions": {
-        "target":"ES2022",
-        "module": "NodeNext",
-        "moduleResolution": "NodeNext", 
-        "outDir": "./build", 
-        "rootDir": "./src", 
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "outDir": "./build",
+    "rootDir": "./",
 
-"strict": true, 
+    /* Strict Type-Checking */
+    "strict": true,
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitOverride": true,
+    "noFallthroughCasesInSwitch": true,
 
- "noImplicitReturns": true, 
+    /* Interop & Resolution */
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "skipLibCheck": true,
 
-"noUnusedLocals": true, 
-
-"noUnusedParameters": true, 
-
- "noImplicitOverride": true, 
-
-"noFallthroughCasesInSwitch": true, 
-
- 
-
- "esModuleInterop": true, 
-
-"forceConsistentCasingInFileNames": true, 
-
-"resolveJsonModule": true, 
-
-"isolatedModules": true, 
- "skipLibCheck": true, 
-
- 
-
-
- "sourceMap": true, 
-
- "types": ["node"] 
-
-}, 
-
- "include": ["src/**/*"], 
-  "exclude": ["node_modules", "build"] 
-
-} 
-
- 
-    
+    /* Emit & Types */
+    "sourceMap": true,
+    "types": ["node", "vitest/globals"]
+  },
+  "include": ["src/**/*", "tests/**/*"],
+  "exclude": ["node_modules", "build"]
+}
