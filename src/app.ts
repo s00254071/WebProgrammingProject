@@ -1,13 +1,12 @@
 import express, { Application, Request, Response } from "express";
+import swaggerUi from 'swagger-ui-express';
+import { swaggerSpec } from './config/swagger';
+import carRoutes from './routes/cars';
+import maintenanceRoutes from './routes/maintenance';
 
-const PORT = process.env.PORT || 4000;
+export const app: Application = express();
 
-const app: Application = express();
-
-app.use((req, _res, next) => {
-    console.log(`${req.method} ${req.originalUrl}`);
-    next();
-});
+app.use(express.json());
 
 app.get("/ping", async (_req: Request, res: Response) => {
     res.json({
@@ -15,12 +14,11 @@ app.get("/ping", async (_req: Request, res: Response) => {
     });
 });
 
-app.get('/bananas', async (_req: Request, res: Response) => {
-    res.json({
-        message: "this is bananas",
-    });
-});
+app.use('/api/v1/cars', carRoutes);
+app.use('/api/v1/maintenance', maintenanceRoutes);
 
-app.listen(PORT, () => {
-    console.log("Server is running on port", PORT);
-});
+app.use(
+    '/api-docs',
+    swaggerUi.serve,
+    swaggerUi.setup(swaggerSpec)
+);
