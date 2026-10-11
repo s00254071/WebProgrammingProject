@@ -49,7 +49,7 @@ describe('Maintenance API', () => {
 
     it('returns 404 for a record that does not exist', async () => {
         const response = await request(app)
-            .get('/api/v1/maintenance/MehmetaliSeatleon');
+            .get('/api/v1/maintenance/cabcabcabcabcabcabcabcab');
         expect(response.status).toBe(404);
     });
 
@@ -63,7 +63,7 @@ describe('Maintenance API', () => {
 
     it('returns 404 when updating a record that does not exist', async () => {
         const response = await request(app)
-            .put('/api/v1/maintenance/MehmetaliSeatleon')
+            .put('/api/v1/maintenance/cabcabcabcabcabcabcabcab')
             .send({ "carId": carId, "type": "oil change", "date": "2026-09-15", "cost": 95 });
         expect(response.status).toBe(404);
     });

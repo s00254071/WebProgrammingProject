@@ -43,7 +43,7 @@ describe('Cars API', () => {
 
     it('returns 404 for a car that does not exist', async () => {
         const response = await request(app)
-            .get('/api/v1/cars/MehmetaliSeatleon');
+            .get('/api/v1/cars/cabcabcabcabcabcabcabcab');
         expect(response.status).toBe(404);
     });
 
@@ -57,7 +57,7 @@ describe('Cars API', () => {
 
     it('returns 404 when updating a car that does not exist', async () => {
         const response = await request(app)
-            .put('/api/v1/cars/MehmetaliSeatleon')
+            .put('/api/v1/cars/cabcabcabcabcabcabcabcab')
             .send(testCar);
         expect(response.status).toBe(404);
     });
