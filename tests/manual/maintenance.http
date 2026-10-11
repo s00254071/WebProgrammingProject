@@ -51,7 +51,7 @@ GET {{endpoint}}/{{newRecord}} HTTP/1.1
 content-type: application/json
 
 ###
-GET {{endpoint}}/MehmetaliSeatleon1 HTTP/1.1
+GET {{endpoint}}/cabcabcabcabcabcabcabcab HTTP/1.1
 content-type: application/json
 
 ###
@@ -66,7 +66,7 @@ content-type: application/json
 }
 
 ###
-PUT {{endpoint}}/MehmetaliSeatleon2 HTTP/1.1
+PUT {{endpoint}}/cabcabcabcabcabcabcabcab HTTP/1.1
 content-type: application/json
 
 {
